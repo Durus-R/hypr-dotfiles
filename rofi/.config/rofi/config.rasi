@@ -1,0 +1,72 @@
+configuration {
+    modi: "drun,run";
+    show-icons: true;
+    display-drun: " Apps";
+    display-run: " Run";
+    font: "FiraCode Nerd Font Mono 12";
+}
+
+@theme "/dev/null"
+
+* {
+    bg: #0d0e1566;      /* Dunkler Hintergrund, transparent */
+    fg: #cdd6f4;        /* Heller Text */
+    accent: #ff007c;    /* Garuda Pink */
+    input: #1e1e2e;
+    
+    background-color: transparent;
+    text-color: @fg;
+    margin: 0;
+    padding: 0;
+    spacing: 0;
+}
+
+window {
+    background-color: @bg;
+    border: 2px;
+    border-color: @accent;
+    border-radius: 12px;
+    width: 45%;
+    padding: 20px;
+}
+
+inputbar {
+    background-color: @input;
+    border-radius: 8px;
+    padding: 12px;
+    margin: 0 0 20px 0;
+    children: [ prompt, entry ];
+}
+
+prompt {
+    background-color: @accent;
+    color: #000000;
+    padding: 8px 16px;
+    border-radius: 6px;
+    margin: 0 10px 0 0;
+}
+
+entry {
+    placeholder: "Suche...";
+    padding: 8px;
+}
+
+listview {
+    lines: 8;
+    columns: 1;
+}
+
+element {
+    padding: 10px;
+    border-radius: 8px;
+}
+
+element selected {
+    background-color: @accent;
+    text-color: #000000;
+}
+
+element-icon {
+    size: 24px;
+    margin: 0 10px 0 0;
+}

@@ -1,0 +1,78 @@
+* {
+    border: none;
+    border-radius: 0;
+    /* WICHTIG: Hier nutzen wir jetzt explizit die Nerd Font Version */
+    font-family: "FiraCode Nerd Font", "Font Awesome 6 Free", "Font Awesome 6 Brands", monospace;
+    font-size: 14px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: transparent;
+    color: #cdd6f4;
+}
+
+/* WORKSPACES (Links) */
+#workspaces {
+    background: #1e1e2e;
+    margin: 0px;
+    padding: 0px 5px;
+    border-radius: 10px;
+    border: 1px solid #ff007c;
+}
+
+#workspaces button {
+    padding: 0 5px;
+    color: #a6adc8;
+    background: transparent;
+}
+
+#workspaces button.active {
+    color: #00ff99;
+    font-weight: bold;
+}
+
+/* MODULE (Rechts & Mitte) */
+#clock, #battery, #network, #pulseaudio, #mpris, #custom-display, #custom-notification, #tray {
+    background: #1e1e2e;
+    padding: 2px 10px; /* Weniger Padding oben/unten */
+    margin: 0px 4px;   /* Kleinere Abstände zwischen den Modulen */
+    border-radius: 10px;
+    border-bottom: 2px solid #ff007c;
+}
+
+/* Spezifisches Styling für den Media-Player */
+#mpris {
+    color: #a6e3a1; /* Ein schönes Grün für Media */
+    min-width: 100px; /* Damit es nicht zu sehr hin und her springt */
+}
+
+#mpris.paused {
+    color: #a6adc8; /* Grau, wenn pausiert */
+    font-style: italic;
+}
+
+/* Spezifisches Styling für den Display-Knopf */
+#custom-display, #custom-notification {
+    color: #f9e2af; /* Gelb */
+    padding: 2px 20px 2px 10px; /* Etwas breiter damit man ihn trifft */
+    font-size: 18px;
+    min-width: 20px;
+}
+
+#custom-notification {
+    padding: 2px 10px 2px 10px;
+}
+
+#tray {
+    background: #1e1e2e;
+}
+
+#clock {
+    color: #cba6f7;
+    font-weight: bold;
+}
+
+#battery.charging { color: #a6e3a1; }
+#battery.warning:not(.charging) { color: #fab387; }
+#battery.critical:not(.charging) { color: #f38ba8; }
