@@ -180,6 +180,9 @@ alias jctl 'journalctl -p 3 -xb'
 alias rip 'expac --timefmt="%Y-%m-%d %T" "%l\t%n %v" | sort | tail -200 | nl'
 alias install_vencord 'sh -c "$(curl -sS https://vencord.dev/install.sh)"'
 alias  task 'go-task'
+alias du 'erd --config du'
+alias tree 'erd'
+
 
 ## Run fastfetch if session is interactive
 if status --is-interactive && type -q fastfetch
@@ -193,3 +196,4 @@ end
 fish_add_path /home/kitten/.nix-profile/bin/
 fish_add_path /home/kitten/.local/bin/
 fish_add_path /home/kitten/.rd/bin
+
