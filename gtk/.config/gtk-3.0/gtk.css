@@ -1,0 +1,23 @@
+@import 'colors.css';
+/* Macht die "Traffic Lights" unsichtbar */
+headerbar button.titlebutton,
+headerbar button.titlebutton.close,
+headerbar button.titlebutton.maximize,
+headerbar button.titlebutton.minimize {
+    opacity: 0;           /* Unsichtbar */
+    background: none;     /* Kein Hintergrund */
+    box-shadow: none;     /* Kein Schatten */
+    min-width: 0px;       /* So klein wie möglich */
+    min-height: 0px;
+    padding: 0px;
+    margin: 0px;
+}
+
+/* Optional: Versucht die ganze Leiste zu schrumpfen */
+
+headerbar {
+    min-height: 0px;
+    padding: 0px;
+    margin: 0px;
+    border: none;
+}

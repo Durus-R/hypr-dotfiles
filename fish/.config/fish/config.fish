@@ -182,6 +182,7 @@ alias install_vencord 'sh -c "$(curl -sS https://vencord.dev/install.sh)"'
 alias  task 'go-task'
 alias du 'erd --config du'
 alias tree 'erd'
+alias erdh 'erd --hidden'
 
 
 ## Run fastfetch if session is interactive
