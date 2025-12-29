@@ -1,0 +1,108 @@
+/* --- DEFINITIONEN (Variablen für einfache Anpassung) --- */
+@define-color bg-base #0d0e15;       /* Dein dunkler Hintergrund */
+@define-color bg-alpha rgba(13, 14, 21, 0.85); /* Etwas weniger transparent als Rofi für Lesbarkeit */
+@define-color fg-text #cdd6f4;       /* Dein heller Text */
+@define-color accent #ff007c;        /* Garuda Pink */
+@define-color input-bg #1e1e2e;      /* Hintergrund für Elemente */
+
+/* --- HAUPTFENSTER --- */
+.control-center {
+    background: @bg-alpha;
+    border: 2px solid @accent;       /* Der pinke Rand (Rofi window border) */
+    border-radius: 12px;             /* Rofi border-radius */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+    padding: 14px;                   /* Etwas Padding analog zu Rofi */
+}
+
+/* --- WIDGETS (Titel, Labels) --- */
+.widget-title, .widget-label {
+    color: @fg-text;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.widget-label > label {
+    color: @fg-text;
+}
+
+/* --- BENACHRICHTIGUNGEN (Einzelne Cards) --- */
+.notification {
+    background: @input-bg;           /* Analog zu Rofi 'inputbar' */
+    border-radius: 8px;              /* Analog zu Rofi 'element' radius */
+    border: 1px solid transparent;   /* Platzhalter */
+    margin: 6px 0;
+    box-shadow: none;
+    padding: 10px;
+}
+
+/* Selektierte/Kritische Benachrichtigung - quasi "element selected" */
+.notification.critical {
+    background: #330d1a;             /* Sehr dunkles Rot/Pink */
+    border: 1px solid @accent;       /* Pinker Rand */
+    color: @fg-text;
+}
+
+.notification-content {
+    background: transparent;
+}
+
+/* Text in Benachrichtigungen */
+.summary {
+    color: @fg-text;
+    font-weight: bold;
+}
+
+.body {
+    color: alpha(@fg-text, 0.8);
+}
+
+.time {
+    color: alpha(@fg-text, 0.6);
+}
+
+/* --- BUTTONS (DND, Bluetooth, WiFi etc.) --- */
+/* Inaktive Buttons */
+.widget-dnd, .widget-buttons-grid > flowbox > flowboxchild > button {
+    background: @input-bg;
+    color: @fg-text;
+    border-radius: 8px;
+    margin: 4px;
+    border: none;
+    box-shadow: none;
+}
+
+/* Aktive Buttons (Wenn du draufklickst) -> Rofi "element selected" Style */
+.widget-dnd:checked, 
+.widget-dnd:active,
+.widget-buttons-grid > flowbox > flowboxchild > button:checked {
+    background: @accent;
+    color: #000000;                  /* Schwarzer Text auf Pink, wie in deiner Config */
+}
+
+/* --- MEDIA PLAYER --- */
+.widget-mpris {
+    background: @input-bg;
+    border-radius: 8px;
+    padding: 8px;
+    margin: 10px 0;
+}
+
+.widget-mpris-title {
+    color: @accent;
+    font-weight: bold;
+}
+
+.widget-mpris-subtitle {
+    color: @fg-text;
+}
+
+/* --- VOLUME / BRIGHTNESS SLIDERS --- */
+.widget-volume trough highlight,
+.widget-backlight trough highlight {
+    background: @accent;             /* Der Balken füllt sich pink */
+}
+
+.widget-volume trough,
+.widget-backlight trough {
+    background: #313244;             /* Surface0 oder ähnlich dunkel */
+}

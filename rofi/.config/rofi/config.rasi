@@ -1,9 +1,10 @@
 configuration {
-    modi: "drun,run";
+    modi: "drun,run,window";
     show-icons: true;
     display-drun: " Apps";
     display-run: " Run";
     font: "FiraCode Nerd Font Mono 12";
+    window-format: "[{w}] · {c} · {t}";
 }
 
 @theme "/dev/null"
