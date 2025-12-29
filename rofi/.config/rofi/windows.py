@@ -9,7 +9,7 @@ ICON_MAP = {
     "kitty": "",
     "firefox": "",
     "vesktop": "", # Discord Clients heißen oft anders
-    "discord": "",
+    #"discord": "",
     "spotify": "",
     "code": "",
     "thunar": "",
