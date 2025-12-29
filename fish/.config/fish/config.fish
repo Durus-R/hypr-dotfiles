@@ -196,4 +196,3 @@ end
 fish_add_path /home/kitten/.nix-profile/bin/
 fish_add_path /home/kitten/.local/bin/
 fish_add_path /home/kitten/.rd/bin
-

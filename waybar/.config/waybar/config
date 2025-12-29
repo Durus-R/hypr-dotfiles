@@ -16,7 +16,7 @@
         "all-outputs": true,
         "format": "{icon}",
         "persistent-workspaces": {
-            "*": 5 
+            "*": 8
         },
         "format-icons": {
             "1": "I",
@@ -24,6 +24,9 @@
             "3": "III",
             "4": "IV",
             "5": "V",
+            "6": "VI",
+            "7": "VII",
+            "8": "VIII",
             "urgent": "",
             "focused": "",
             "default": ""
