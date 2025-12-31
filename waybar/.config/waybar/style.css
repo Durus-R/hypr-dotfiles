@@ -73,6 +73,21 @@ window#waybar {
     font-weight: bold;
 }
 
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}
+
 #battery.charging { color: #a6e3a1; }
 #battery.warning:not(.charging) { color: #fab387; }
-#battery.critical:not(.charging) { color: #f38ba8; }
+#battery.critical:not(.charging) {
+    background-color: #f53c3c;
+    color: #f38ba8;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}

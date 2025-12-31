@@ -87,7 +87,7 @@
 
     "custom/display": {
         "format": "",
-        "on-click": "wdisplays",
+        "on-click": "nwg-displays",
         "tooltip": false
     },
     "custom/notification": {
