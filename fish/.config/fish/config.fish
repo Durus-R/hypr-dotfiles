@@ -185,6 +185,7 @@ alias tree 'erd'
 alias erdh 'erd --hidden'
 
 
+
 ## Run fastfetch if session is interactive
 if status --is-interactive && type -q fastfetch
    fastfetch --config dr460nized.jsonc

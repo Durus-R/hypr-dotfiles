@@ -55,7 +55,8 @@
         "format-ethernet": " Eth",
         "format-linked": " (No IP)",
         "format-disconnected": "⚠ Disconnected",
-        "tooltip-format": "{ifname} via {gwaddr}"
+        "tooltip-format": "{ifname} via {gwaddr}",
+        "on-click": "kitty nmtui"
     },
     "battery": {
         "states": { "warning": 30, "critical": 15 },
