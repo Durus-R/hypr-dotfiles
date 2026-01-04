@@ -1,5 +1,6 @@
 #! /bin/bash
 
+rclone mount gdrive: ~/GoogleDrive --daemon &
 swww-daemon &
 waybar &
 hypridle &
