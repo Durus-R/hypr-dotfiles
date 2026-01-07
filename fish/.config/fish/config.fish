@@ -117,6 +117,7 @@ function sysupdate
     echo "Updating TLDR pages... 📔"
     tldr -u
     garuda-update
+    touch ~/.last_update
 end
 
 ## Useful aliases
@@ -190,6 +191,7 @@ alias gdrive_reconnect 'rclone config reconnect gdrive:'
 ## Run fastfetch if session is interactive
 if status --is-interactive && type -q fastfetch
    fastfetch --config dr460nized.jsonc
+   check_update
 end
 alias ssh "ssh_loadkeys && /usr/bin/ssh"
 function beekeeper
