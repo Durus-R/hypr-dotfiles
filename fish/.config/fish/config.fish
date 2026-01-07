@@ -184,6 +184,7 @@ alias du 'erd --config du'
 alias tree 'erd'
 alias erdh 'erd --hidden'
 
+alias gdrive_reconnect 'rclone config reconnect gdrive:'
 
 
 ## Run fastfetch if session is interactive
