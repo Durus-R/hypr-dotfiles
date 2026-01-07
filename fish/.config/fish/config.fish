@@ -116,7 +116,7 @@ function sysupdate
     flatpak update
     echo "Updating TLDR pages... 📔"
     tldr -u
-    garuda-update
+    garuda-update -a
     touch ~/.last_update
 end
 
