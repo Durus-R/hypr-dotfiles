@@ -51,6 +51,8 @@ handle() {
 
             # 3. Das richtige Bild suchen
             TARGET_FILE="$WALLPAPER_DIR/workspace_${workspace_id}.png"
+
+            echo ${workspace_id} > ~/.last_wallpaper.txt
             
             if [ -f "$TARGET_FILE" ]; then
                 img_to_use="$TARGET_FILE"
