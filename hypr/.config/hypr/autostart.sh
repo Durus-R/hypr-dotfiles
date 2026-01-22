@@ -11,4 +11,5 @@ wl-paste --type image --watch cliphist store &
 swaync &
 discord --start-minimized &
 kdeconnect-indicator &
+rquickshare &
 ~/.config/hypr/init_wallpaper.sh
