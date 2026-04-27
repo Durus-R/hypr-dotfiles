@@ -12,14 +12,15 @@ window#waybar {
     color: #cdd6f4;
 }
 
-/* WORKSPACES (Links) */
-#workspaces {
+/* WORKSPACES (Links) 
+#workspaces, #custom-hyprlayout {
     background: #1e1e2e;
     margin: 0px;
     padding: 0px 5px;
     border-radius: 10px;
     border: 1px solid #ff007c;
 }
+ */
 
 #workspaces button {
     padding: 0 5px;
@@ -33,7 +34,7 @@ window#waybar {
 }
 
 /* MODULE (Rechts & Mitte) */
-#clock, #battery, #network, #pulseaudio, #mpris, #custom-display, #custom-notification, #tray {
+#workspaces, #custom-hyprlayout, #clock, #battery, #network, #pulseaudio, #mpris, #custom-display, #custom-notification, #tray {
     background: #1e1e2e;
     padding: 2px 10px; /* Weniger Padding oben/unten */
     margin: 0px 4px;   /* Kleinere Abstände zwischen den Modulen */

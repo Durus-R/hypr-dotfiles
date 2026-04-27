@@ -7,9 +7,9 @@
     "margin-left": 10,
     "margin-right": 10,
     
-    "modules-left": ["hyprland/workspaces", "mpris"],
+    "modules-left": ["hyprland/workspaces", "custom/hyprlayout","mpris"],
     "modules-center": ["clock"],
-    "modules-right": ["tray", "custom/display", "pulseaudio", "network", "battery", "custom/notification"],
+    "modules-right": ["tray", "custom/display", "pulseaudio", "network", "battery",  "custom/notification"],
 
     "hyprland/workspaces": {
         "disable-scroll": true,
@@ -89,6 +89,12 @@
         "format": "",
         "on-click": "nwg-displays",
         "tooltip": false
+    },
+    "custom/hyprlayout": {
+        "exec": "~/.config/waybar/layout_state.sh",
+        "return-type": "json",
+        "interval": 1,
+        "format": "{}"
     },
     "custom/notification": {
     "tooltip": false,

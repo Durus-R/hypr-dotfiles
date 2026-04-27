@@ -13,6 +13,8 @@ discord --start-minimized &
 #kdeconnect-indicator &
 rquickshare &
 ~/.config/hypr/init_wallpaper.sh
+rog-control-center &
+Telegram -autostart &
 gsettings set org.gnome.shell.extensions.user-theme name 'WhiteSur-Dark-pink'
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 gsettings set org.gnome.desktop.interface gtk-theme 'WhiteSur-Dark-solid-pink'
