@@ -12,7 +12,7 @@ change_wallpaper() {
     local img="$1"
     local direction="$2"
     
-    # Richtung übersetzen in Winkel für swww
+    # Richtung übersetzen in Winkel für awww
     # 30 = Wisch nach Rechts (wir gehen zu höherer Nummer)
     # 210 = Wisch nach Links (wir gehen zu niedrigerer Nummer)
     if [ "$direction" == "right" ]; then
@@ -21,11 +21,11 @@ change_wallpaper() {
         angle=180
     fi
 
-    swww img "$img" \
-        --transition-type wipe \
-        --transition-angle "$angle" \
-        --transition-duration 1 \
+    awww img "$img" \
+        --transition-type fade \
+        --transition-duration 0.5 \
         --transition-fps 144
+        #--transition-angle "$angle" \
 }
 
 handle() {
