@@ -9,7 +9,7 @@ hyprctl setcursor Sweet-cursors 24
 wl-paste --type text --watch cliphist store &
 wl-paste --type image --watch cliphist store &
 swaync &
-discord --start-minimized &
+vesktop --start-minimized &
 #kdeconnect-indicator &
 rquickshare &
 ~/.config/hypr/init_wallpaper.sh
