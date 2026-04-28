@@ -7,7 +7,7 @@
     "margin-left": 10,
     "margin-right": 10,
     
-    "modules-left": ["hyprland/workspaces", "custom/hyprlayout","mpris"],
+    "modules-left": ["image", "hyprland/workspaces", "mpris"],
     "modules-center": ["clock"],
     "modules-right": ["tray", "custom/display", "pulseaudio", "network", "battery",  "custom/notification"],
 
@@ -37,8 +37,8 @@
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt>{calendar}</tt>",
     },
     "pulseaudio": {
-        "format": "{icon} {volume}%",
-        "format-muted": " Muted",
+        "format": "{icon}  {volume}%",
+        "format-muted": "  Muted",
         "format-icons": {
             "headphone": "",
             "hands-free": "",
@@ -90,11 +90,11 @@
         "on-click": "nwg-displays",
         "tooltip": false
     },
-    "custom/hyprlayout": {
+    "image": {
+        //"path": "",
         "exec": "~/.config/waybar/layout_state.sh",
-        "return-type": "json",
+        "size": 32,
         "interval": 1,
-        "format": "{}"
     },
     "custom/notification": {
     "tooltip": false,

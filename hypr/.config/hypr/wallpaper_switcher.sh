@@ -22,10 +22,10 @@ change_wallpaper() {
     fi
 
     awww img "$img" \
-        --transition-type fade \
-        --transition-duration 0.5 \
-        --transition-fps 144
-        #--transition-angle "$angle" \
+        --transition-type wave \
+        --transition-duration 1 \
+        --transition-fps 144 \
+        --transition-angle "$angle" 
 }
 
 handle() {
@@ -40,7 +40,10 @@ handle() {
             fi
 
             # 2. Richtung berechnen (Vergleich mit Gedächtnis)
-            if [ "$workspace_id" -gt "$last_workspace" ]; then
+            if [ "$workspace_id" -gt "8" ]; then 
+                sleep 0.2
+                hyprctl dispatch workspace 8
+            elif [ "$workspace_id" -gt "$last_workspace" ]; then
                 direction="right"
             elif [ "$workspace_id" -lt "$last_workspace" ]; then
                 direction="left"

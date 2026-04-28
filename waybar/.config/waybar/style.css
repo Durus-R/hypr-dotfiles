@@ -12,15 +12,21 @@ window#waybar {
     color: #cdd6f4;
 }
 
-/* WORKSPACES (Links) 
+/* WORKSPACES (Links) */ 
 #workspaces, #custom-hyprlayout {
-    background: #1e1e2e;
     margin: 0px;
-    padding: 0px 5px;
+    padding: 1px; /* Die Dicke deines Rahmens */
     border-radius: 10px;
-    border: 1px solid #ff007c;
+    
+    /* Der Trick: Zwei Hintergründe übereinander */
+    /* 1. Der innere dunkle Hintergrund */
+    /* 2. Der Gradient-Hintergrund für den "Rahmen" */
+    background: 
+        linear-gradient(#1e1e2e, #1e1e2e) padding-box, 
+        linear-gradient(90deg, rgba(102, 11, 181, 1) 0%, rgba(217, 108, 208, 1) 41%, rgba(103, 204, 75, 1) 100%) border-box;
+    
+    border: 1px solid transparent;
 }
- */
 
 #workspaces button {
     padding: 0 5px;
@@ -34,12 +40,22 @@ window#waybar {
 }
 
 /* MODULE (Rechts & Mitte) */
-#workspaces, #custom-hyprlayout, #clock, #battery, #network, #pulseaudio, #mpris, #custom-display, #custom-notification, #tray {
-    background: #1e1e2e;
-    padding: 2px 10px; /* Weniger Padding oben/unten */
-    margin: 0px 4px;   /* Kleinere Abstände zwischen den Modulen */
+#clock, #battery, #network, #pulseaudio, #mpris, #custom-display, #custom-notification, #tray {
+    background: 
+        /* 1. Deckschicht: Dein dunkler Hintergrund */
+        linear-gradient(#1e1e2e, #1e1e2e) padding-box, 
+        /* 2. Unterschicht: Der Verlauf, der nur unten als 2px-Linie erscheint */
+        linear-gradient(90deg, rgba(102, 11, 181, 1) 0%, rgba(217, 108, 208, 1) 41%, rgba(103, 204, 75, 1) 100%) border-box;
+    
+    /* Wir machen die Border oben, links und rechts 0px und nur unten 2px */
+    border-top: 0px solid transparent;
+    border-left: 0px solid transparent;
+    border-right: 0px solid transparent;
+    border-bottom: 2px solid transparent;
+
+    padding: 2px 10px;
+    margin: 0px 4px;
     border-radius: 10px;
-    border-bottom: 2px solid #ff007c;
 }
 
 /* Spezifisches Styling für den Media-Player */
@@ -65,9 +81,6 @@ window#waybar {
     padding: 2px 10px 2px 10px;
 }
 
-#tray {
-    background: #1e1e2e;
-}
 
 #clock {
     color: #cba6f7;

@@ -21,12 +21,16 @@ if [ "$LAYOUT" = "master" ]; then
         MASTER_COUNT=0
     fi
     # Ausgabe für Waybar anpassen (z. B. "Master: 2")
-    TEXT="Master"
+    #TEXT="Master"
+    TEXT="/home/kitten/Bilder/master_layout.png"
     CLASS="master"
 else
-    TEXT="Dwindle"
+    #TEXT="Dwindle"
+    TEXT="/home/kitten/Bilder/dwindle_layout.png"
     CLASS="dwindle"
 fi
 
 # JSON-Ausgabe an Waybar
-echo "{\"text\": \"$TEXT [$WIN_COUNT]\", \"class\": \"$CLASS\", \"tooltip\": \"Aktuelles Layout: $LAYOUT\nMaster-Fenster: $MASTER_COUNT\nGesamt: $WIN_COUNT\"}"
+#echo "{\"text\": \"$TEXT [$WIN_COUNT]\", \"class\": \"$CLASS\", \"tooltip\": \"Aktuelles Layout: $LAYOUT\nMaster-Fenster: $MASTER_COUNT\nGesamt: $WIN_COUNT\"}"
+echo "$TEXT"
+echo "Windows: $WIN_COUNT"
