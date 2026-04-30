@@ -12,44 +12,84 @@ button {
     background-color: #1e1e2e;
     border: 2px solid #313244;
     border-radius: 20px;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 25%;
+    background-repeat: no-repeat, no-repeat;
+    background-position: center, center;
+    background-size: 25%, cover; /* Standard: Icon 25%, Gradient Cover */
     margin: 10px;
     transition: all 0.3s ease-in-out;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
-button:focus, button:active, button:hover {
-    background-color: #ff007c; /* Garuda Pink beim Hover */
-    border-color: #ff007c;
+/* --- Hover (Maus ist drüber) --- */
+button:hover {
+    border-color: rgba(217, 108, 208, 1); /* Pink */
     color: #1e1e2e;
     outline-style: none;
     animation: gradient_f 20s ease-in infinite;
-    background-size: 30%; /* Icon wird größer */
+    background-size: 32%, cover; /* Icon wird größer */
 }
 
-/* Icons zuweisen (wlogout sucht standardmäßig in /usr/share/wlogout/icons) */
+/* --- Focus (mit Tastatur angewählt) & Active (beim Klicken) --- */
+button:focus, button:active {
+    border-color: rgba(103, 204, 75, 1); /* Grün aus deinem Gradienten */
+    box-shadow: 0 0 15px rgba(103, 204, 75, 0.6); /* Leucht-Effekt für klaren Fokus */
+    color: #1e1e2e;
+    outline-style: none;
+    animation: gradient_f 20s ease-in infinite;
+    background-size: 28%, cover; /* Kleiner als Hover -> wirkt "eingedrückt" */
+}
+
+
+/* ==========================================================================
+   ICONS & GRADIENTEN
+   Der Gradient wird für alle drei Zustände (Hover, Focus, Active) auf
+   100% Sichtbarkeit gesetzt, im Normalzustand auf 0%.
+   ========================================================================== */
+
+/* --- Lock --- */
 #lock {
-    background-image: image(url("/usr/share/wlogout/icons/lock.png"));
+    background-image: url("/usr/share/wlogout/icons/lock.png"), linear-gradient(90deg, rgba(102, 11, 181, 0) 0%, rgba(217, 108, 208, 0) 41%, rgba(103, 204, 75, 0) 100%);
+}
+#lock:focus, #lock:active, #lock:hover {
+    background-image: url("/usr/share/wlogout/icons/lock.png"), linear-gradient(90deg, rgba(102, 11, 181, 1) 0%, rgba(217, 108, 208, 1) 41%, rgba(103, 204, 75, 1) 100%);
 }
 
+/* --- Logout --- */
 #logout {
-    background-image: image(url("/usr/share/wlogout/icons/logout.png"));
+    background-image: url("/usr/share/wlogout/icons/logout.png"), linear-gradient(90deg, rgba(102, 11, 181, 0) 0%, rgba(217, 108, 208, 0) 41%, rgba(103, 204, 75, 0) 100%);
+}
+#logout:focus, #logout:active, #logout:hover {
+    background-image: url("/usr/share/wlogout/icons/logout.png"), linear-gradient(90deg, rgba(102, 11, 181, 1) 0%, rgba(217, 108, 208, 1) 41%, rgba(103, 204, 75, 1) 100%);
 }
 
+/* --- Suspend --- */
 #suspend {
-    background-image: image(url("/usr/share/wlogout/icons/suspend.png"));
+    background-image: url("/usr/share/wlogout/icons/suspend.png"), linear-gradient(90deg, rgba(102, 11, 181, 0) 0%, rgba(217, 108, 208, 0) 41%, rgba(103, 204, 75, 0) 100%);
+}
+#suspend:focus, #suspend:active, #suspend:hover {
+    background-image: url("/usr/share/wlogout/icons/suspend.png"), linear-gradient(90deg, rgba(102, 11, 181, 1) 0%, rgba(217, 108, 208, 1) 41%, rgba(103, 204, 75, 1) 100%);
 }
 
+/* --- Hibernate --- */
 #hibernate {
-    background-image: image(url("/usr/share/wlogout/icons/hibernate.png"));
+    background-image: url("/usr/share/wlogout/icons/hibernate.png"), linear-gradient(90deg, rgba(102, 11, 181, 0) 0%, rgba(217, 108, 208, 0) 41%, rgba(103, 204, 75, 0) 100%);
+}
+#hibernate:focus, #hibernate:active, #hibernate:hover {
+    background-image: url("/usr/share/wlogout/icons/hibernate.png"), linear-gradient(90deg, rgba(102, 11, 181, 1) 0%, rgba(217, 108, 208, 1) 41%, rgba(103, 204, 75, 1) 100%);
 }
 
+/* --- Shutdown --- */
 #shutdown {
-    background-image: image(url("/usr/share/wlogout/icons/shutdown.png"));
+    background-image: url("/usr/share/wlogout/icons/shutdown.png"), linear-gradient(90deg, rgba(102, 11, 181, 0) 0%, rgba(217, 108, 208, 0) 41%, rgba(103, 204, 75, 0) 100%);
+}
+#shutdown:focus, #shutdown:active, #shutdown:hover {
+    background-image: url("/usr/share/wlogout/icons/shutdown.png"), linear-gradient(90deg, rgba(102, 11, 181, 1) 0%, rgba(217, 108, 208, 1) 41%, rgba(103, 204, 75, 1) 100%);
 }
 
+/* --- Reboot --- */
 #reboot {
-    background-image: image(url("/usr/share/wlogout/icons/reboot.png"));
+    background-image: url("/usr/share/wlogout/icons/reboot.png"), linear-gradient(90deg, rgba(102, 11, 181, 0) 0%, rgba(217, 108, 208, 0) 41%, rgba(103, 204, 75, 0) 100%);
+}
+#reboot:focus, #reboot:active, #reboot:hover {
+    background-image: url("/usr/share/wlogout/icons/reboot.png"), linear-gradient(90deg, rgba(102, 11, 181, 1) 0%, rgba(217, 108, 208, 1) 41%, rgba(103, 204, 75, 1) 100%);
 }

@@ -10,9 +10,10 @@ configuration {
 @theme "/dev/null"
 
 * {
-    bg: #0d0e1566;      /* Dunkler Hintergrund, transparent */
-    fg: #cdd6f4;        /* Heller Text */
-    accent: #ff007c;    /* Garuda Pink */
+    bg: #0d0e1566;        /* Dunkler Hintergrund, transparent */
+    fg: #cdd6f4;          /* Heller Text */
+    accent-pink: #d96cd0; /* Pink aus deinem Gradienten für den Rahmen */
+    accent-green: #67cc4b;/* Grün aus deinem Gradienten für den Fokus */
     input: #1e1e2e;
     
     background-color: transparent;
@@ -25,7 +26,7 @@ configuration {
 window {
     background-color: @bg;
     border: 2px;
-    border-color: @accent;
+    border-color: @accent-pink; /* Feste Farbe, da Gradienten-Borders nicht unterstützt werden */
     border-radius: 12px;
     width: 45%;
     padding: 20px;
@@ -40,8 +41,9 @@ inputbar {
 }
 
 prompt {
-    background-color: @accent;
-    color: #000000;
+    /* Gradient für das Feld vorne (z.B. "Apps") */
+    background-image: linear-gradient(to right, #660bb5, #d96cd0, #67cc4b);
+    text-color: #1e1e2e;
     padding: 8px 16px;
     border-radius: 6px;
     margin: 0 10px 0 0;
@@ -62,11 +64,19 @@ element {
     border-radius: 8px;
 }
 
-element selected {
-    background-color: @accent;
-    text-color: #000000;
+/* --- Hover (Wenn du die Maus benutzt) --- */
+element hover {
+    background-image: linear-gradient(to right, #660bb5, #d96cd0, #67cc4b);
+    text-color: #1e1e2e;
 }
-
+element selected {
+    background-color: @input;
+    background-image: none;
+    text-color: @accent-green;
+    border: 1px;                  /* Nur die Dicke des Rahmens angeben */
+    border-color: @accent-green;  /* Die Farbe separat zuweisen */
+}
+/* --- Selected (Fokus beim Navigieren mit der Tastatur) --- */
 element-icon {
     size: 24px;
     margin: 0 10px 0 0;

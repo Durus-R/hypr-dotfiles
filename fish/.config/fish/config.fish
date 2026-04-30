@@ -1,46 +1,10 @@
-## Set values
-# Hide welcome message & ensure we are reporting fish as shell
 set fish_greeting
 set VIRTUAL_ENV_DISABLE_PROMPT "1"
 set -x SHELL /usr/bin/fish
-
-# Use bat for man pages
-set -xU MANPAGER "sh -c 'col -bx | bat -l man -p'"
 set -xU MANROFFOPT "-c"
 
-# Hint to exit PKGBUILD review in Paru
-set -x PARU_PAGER "less -P \"Press 'q' to exit the PKGBUILD review.\""
+set -xU MANPAGER "sh -c 'col -bx | bat -l man -p'"
 
-# Set settings for https://github.com/franciscolourenco/done
-set -U __done_min_cmd_duration 10000
-set -U __done_notification_urgency_level low
-
-## Environment setup
-# Apply .profile: use this to put fish compatible .profile stuff in
-if test -f ~/.fish_profile
-  source ~/.fish_profile
-end
-
-# Add ~/.local/bin to PATH
-if test -d ~/.local/bin
-    if not contains -- ~/.local/bin $PATH
-        set -p PATH ~/.local/bin
-    end
-end
-
-# Add depot_tools to PATH
-if test -d ~/Applications/depot_tools
-    if not contains -- ~/Applications/depot_tools $PATH
-        set -p PATH ~/Applications/depot_tools
-    end
-end
-
-## Starship prompt
-if status --is-interactive
-   source ("/usr/bin/starship" init fish --print-full-init | psub)
-end
-
-## Functions
 # Functions needed for !! and !$ https://github.com/oh-my-fish/plugin-bang-bang
 function __history_previous_command
   switch (commandline -t)
@@ -69,14 +33,6 @@ else
   bind '$' __history_previous_command_arguments
 end
 
-# Fish command history
-function history
-    builtin history --show-time='%F %T '
-end
-
-function backup --argument filename
-    cp $filename $filename.bak
-end
 
 # Copy DIR1 DIR2
 function copy
@@ -102,24 +58,6 @@ function cleanup
     docker image prune -af
 end
 
-function ssh_loadkeys
-    eval (ssh-agent -c)
-    dcli sync
-    dcli note "SSH Privatekey" | ssh-add -
-end
-
-function sysupdate
-    echo "Updating Nix... ❄️"
-    sudo nix-channel --update
-    nix-env -u
-    echo "Updating Flatpak... 📦"
-    flatpak update
-    echo "Updating TLDR pages... 📔"
-    tldr -u
-    garuda-update -a
-    touch ~/.last_update
-end
-
 ## Useful aliases
 # Replace ls with eza
 alias ls 'eza -al --color=always --group-directories-first --icons' # preferred listing
@@ -138,6 +76,12 @@ end
 # Common use
 alias .. 'cd ..'
 alias ... 'cd ../..'
+alias rip 'expac --timefmt="%Y-%m-%d %T" "%l\t%n %v" | sort | tail -200 | nl'
+alias gdrive_reconnect 'rclone config reconnect gdrive:'
+alias du 'erd --config du'
+alias jctl 'journalctl -p 3 -xb'
+alias tree 'erd'
+alias erdh 'erd --hidden'
 alias .... 'cd ../../..'
 alias ..... 'cd ../../../..'
 alias ...... 'cd ../../../../..'
@@ -166,38 +110,44 @@ alias mirrora 'sudo reflector --latest 50 --number 20 --sort age --save /etc/pac
 alias mirrord 'sudo reflector --latest 50 --number 20 --sort delay --save /etc/pacman.d/mirrorlist'
 alias mirrors 'sudo reflector --latest 50 --number 20 --sort score --save /etc/pacman.d/mirrorlist'
 
-# Help people new to Arch
-alias apt 'man pacman'
-alias apt-get 'man pacman'
-alias please 'sudo'
-alias tb 'nc termbin.com 9999'
-alias helpme 'echo "To print basic information about a command use tldr <command>"'
-alias pacdiff 'sudo -H DIFFPROG=meld pacdiff'
-
-# Get the error messages from journalctl
-alias jctl 'journalctl -p 3 -xb'
-
-# Recent installed packages
-alias rip 'expac --timefmt="%Y-%m-%d %T" "%l\t%n %v" | sort | tail -200 | nl'
-alias install_vencord 'sh -c "$(curl -sS https://vencord.dev/install.sh)"'
-alias  task 'go-task'
-alias du 'erd --config du'
-alias tree 'erd'
-alias erdh 'erd --hidden'
-
-alias gdrive_reconnect 'rclone config reconnect gdrive:'
-
-
-## Run fastfetch if session is interactive
-if status --is-interactive && type -q fastfetch
-   fastfetch --config dr460nized.jsonc
-   check_update
+# Fish command history
+function history
+    builtin history --show-time='%F %T '
 end
-alias ssh "ssh_loadkeys && /usr/bin/ssh"
-function beekeeper
-    ssh_loadkeys
-    flatpak run --filesystem=$SSH_AUTH_SOCK --env=SSH_AUTH_SOCK=$SSH_AUTH_SOCK io.beekeeperstudio.Studio
+
+set -x PARU_PAGER "less -P \"Press 'q' to exit the PKGBUILD review.\""
+
+if status is-login
+    if test (tty) = "/dev/tty1"
+        exec start-hyprland
+    end
 end
-fish_add_path /home/kitten/.nix-profile/bin/
-fish_add_path /home/kitten/.local/bin/
-fish_add_path /home/kitten/.rd/bin
+
+starship init fish | source
+if status is-interactive
+# Commands to run in interactive sessions can go here
+    fastfetch -c archey.jsonc --logo ~/Bilder/icon.png --logo-height 20
+    alias icat "kitty +kitten icat"
+end
+function y
+	set tmp (mktemp -t "yazi-cwd.XXXXXX")
+	command yazi $argv --cwd-file="$tmp"
+	if read -z cwd < "$tmp"; and [ "$cwd" != "$PWD" ]; and test -d "$cwd"
+		builtin cd -- "$cwd"
+	end
+	rm -f -- "$tmp"
+end
+alias l "erd --level 1"
+function load_ssh
+    dcli sync
+    eval (ssh-agent -c)
+    dcli note "SSH Privatekey" | ssh-add -
+end
+
+alias gpu_on "supergfxctl -m Hybrid"
+alias gpu_off "supergfxctl -m Integrated"
+
+# Added by LM Studio CLI (lms)
+set -gx PATH $PATH /home/kitten/.lmstudio/bin
+# End of LM Studio CLI section
+

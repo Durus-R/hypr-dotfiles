@@ -22,7 +22,7 @@ change_wallpaper() {
     fi
 
     awww img "$img" \
-        --transition-type wave \
+        --transition-type wipe \
         --transition-duration 1 \
         --transition-fps 144 \
         --transition-angle "$angle" 

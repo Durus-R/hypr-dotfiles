@@ -1,5 +1,6 @@
 #! /usr/bin/bash
 
+sleep 1
 workspace_id=$(shuf -i 1-8 -n 1)
 WALLPAPER_DIR="$HOME/Bilder/wallpapers"
 DEFAULT_IMG="$WALLPAPER_DIR/workspace_${workspace_id}.png"

@@ -9,15 +9,15 @@ hyprctl setcursor Sweet-cursors 24
 wl-paste --type text --watch cliphist store &
 wl-paste --type image --watch cliphist store &
 swaync &
-vesktop --start-minimized &
 #kdeconnect-indicator &
-rquickshare &
+#rquickshare &
 ~/.config/hypr/init_wallpaper.sh
-Telegram -autostart &
 hyprsunset &
 gsettings set org.gnome.shell.extensions.user-theme name 'WhiteSur-Dark-pink'
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 gsettings set org.gnome.desktop.interface gtk-theme 'WhiteSur-Dark-solid-pink'
 gsettings set org.gnome.desktop.interface cursor-theme 'Sweet-Cursors'
-sleep 5
+sleep 3
+Telegram -autostart &
+vesktop --start-minimized &
 rog-control-center &
