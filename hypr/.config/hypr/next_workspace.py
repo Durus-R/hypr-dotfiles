@@ -8,7 +8,9 @@ ws = json.loads(subprocess.check_output(["hyprctl", "workspaces", "-j"]))
 
 for w in ws:
     if w["windows"] == 0:
-        sys.exit(os.system(f"hyprctl dispatch workspace {w['id']}"))
+        os.system(f"hyprctl dispatch workspace {w['id']}")
+        os.system("rofi -show drun")
+        sys.exit()
 
-os.system("bash -c notify-send \"Fehler\" \"Keine freien Arbeitsbereiche\"")
+os.system('notify-send "No free workspaces"')
 sys.exit(1)

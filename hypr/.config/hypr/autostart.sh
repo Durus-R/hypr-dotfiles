@@ -1,6 +1,7 @@
 #! /bin/bash
 
 rclone mount gdrive: ~/Drive --daemon &
+rclone mount tailscale: ~/.taildrive_global/ --daemon &
 awww-daemon &
 waybar &
 hypridle &
@@ -21,3 +22,4 @@ sleep 3
 Telegram -autostart &
 vesktop --start-minimized &
 rog-control-center &
+mwb &

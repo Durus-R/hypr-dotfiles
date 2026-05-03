@@ -60,7 +60,8 @@ end
 
 ## Useful aliases
 # Replace ls with eza
-alias ls 'eza -al --color=always --group-directories-first --icons' # preferred listing
+alias ls 'eza -l --color=always --group-directories-first --icons' # preferred listing
+alias lh 'eza -al --color=always --group-directories-first --icons' # preferred listing
 alias lsz 'eza -al --color=always --total-size --group-directories-first --icons' # include file size
 alias la 'eza -a --color=always --group-directories-first --icons'  # all files and dirs
 alias ll 'eza -l --color=always --group-directories-first --icons'  # long format
@@ -110,6 +111,8 @@ alias mirrora 'sudo reflector --latest 50 --number 20 --sort age --save /etc/pac
 alias mirrord 'sudo reflector --latest 50 --number 20 --sort delay --save /etc/pacman.d/mirrorlist'
 alias mirrors 'sudo reflector --latest 50 --number 20 --sort score --save /etc/pacman.d/mirrorlist'
 
+alias taildrop 'sudo tailscale file get ~/Downloads'
+
 # Fish command history
 function history
     builtin history --show-time='%F %T '
@@ -126,8 +129,12 @@ end
 starship init fish | source
 if status is-interactive
 # Commands to run in interactive sessions can go here
-    fastfetch -c archey.jsonc --logo ~/Bilder/icon.png --logo-height 20
-    alias icat "kitty +kitten icat"
+    if [ "$TERM" = "xterm-kitty" ]
+        fastfetch -c archey.jsonc --logo ~/Bilder/icon.png --logo-height 20
+        alias icat "kitty +kitten icat"
+    else
+        fastfetch -c archey.jsonc 
+    end
 end
 function y
 	set tmp (mktemp -t "yazi-cwd.XXXXXX")
@@ -144,10 +151,12 @@ function load_ssh
     dcli note "SSH Privatekey" | ssh-add -
 end
 
-alias gpu_on "supergfxctl -m Hybrid"
-alias gpu_off "supergfxctl -m Integrated"
+alias gpu_on "supergfxctl -m Hybrid && hyprshutdown -t 'Logout'"
+alias gpu_off "supergfxctl -m Integrated && hyprshutdown -t 'Logout'"
+set -x TS_EXITNODE de-fra-wg-101.mullvad.ts.net
 
 # Added by LM Studio CLI (lms)
 set -gx PATH $PATH /home/kitten/.lmstudio/bin
 # End of LM Studio CLI section
 
+#set -gx PATH $PATH /home/kitten/go/bin

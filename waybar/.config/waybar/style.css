@@ -47,12 +47,13 @@ window#waybar {
         /* 2. Unterschicht: Der Verlauf, der nur unten als 2px-Linie erscheint */
         linear-gradient(90deg, rgba(102, 11, 181, 1) 0%, rgba(217, 108, 208, 1) 41%, rgba(103, 204, 75, 1) 100%) border-box;
     
-    /* Wir machen die Border oben, links und rechts 0px und nur unten 2px */
+    /* Wir machen die Border oben, links und rechts 0px und nur unten 2px 
     border-top: 0px solid transparent;
     border-left: 0px solid transparent;
     border-right: 0px solid transparent;
-    border-bottom: 3px solid transparent;
+    border-bottom: 3px solid transparent; */
 
+    border: 3px solid transparent;
     padding: 4px 10px;
     margin: 0px 4px;
     border-radius: 14px;
@@ -96,6 +97,7 @@ window#waybar {
 #battery.charging { color: #a6e3a1; }
 #battery.warning:not(.charging) { color: #fab387; }
 #battery.critical:not(.charging) {
+    background: none;
     background-color: #f53c3c;
     color: #f38ba8;
     animation-name: blink;
