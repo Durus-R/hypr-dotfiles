@@ -9,7 +9,7 @@
     
     "modules-left": ["image", "hyprland/workspaces", "mpris"],
     "modules-center": ["clock"],
-    "modules-right": ["tray", "custom/display", "pulseaudio", "network", "battery",  "custom/notification"],
+    "modules-right": ["tray",  "pulseaudio", "network", "battery",  "custom/notification"],
 
     "hyprland/workspaces": {
         "disable-scroll": true,

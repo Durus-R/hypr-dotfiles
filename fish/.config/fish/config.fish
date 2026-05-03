@@ -46,6 +46,10 @@ function copy
     end
 end
 
+function pixel6
+    sudo adb connect 100.66.181.125:39787 
+end
+
 # Cleanup local orphaned packages
 function cleanup
     while pacman -Qdtq
@@ -57,6 +61,22 @@ function cleanup
     nix-collect-garbage -d
     docker image prune -af
 end
+
+function ssh
+    ssh-add -l &>/dev/null
+    if [ $status = 2 ]
+            echo "Starting SSH Agent..."
+            eval (ssh-agent -c) &>/dev/null
+        end
+    ssh-add -l &>/dev/null
+    if [ $status = 1 ]
+        echo "Syncing Dashlane..."
+        dcli sync
+        dcli note "SSH Privatekey" | ssh-add -
+    end
+    /usr/bin/ssh $argv
+end
+
 
 ## Useful aliases
 # Replace ls with eza
@@ -145,11 +165,6 @@ function y
 	rm -f -- "$tmp"
 end
 alias l "erd --level 1"
-function load_ssh
-    dcli sync
-    eval (ssh-agent -c)
-    dcli note "SSH Privatekey" | ssh-add -
-end
 
 alias gpu_on "supergfxctl -m Hybrid && hyprshutdown -t 'Logout'"
 alias gpu_off "supergfxctl -m Integrated && hyprshutdown -t 'Logout'"

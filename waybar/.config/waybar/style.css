@@ -12,21 +12,6 @@ window#waybar {
     color: #cdd6f4;
 }
 
-/* WORKSPACES (Links) */ 
-#workspaces, #custom-hyprlayout {
-    margin: 0px;
-    padding: 1px; /* Die Dicke deines Rahmens */
-    border-radius: 10px;
-    
-    /* Der Trick: Zwei Hintergründe übereinander */
-    /* 1. Der innere dunkle Hintergrund */
-    /* 2. Der Gradient-Hintergrund für den "Rahmen" */
-    background: 
-        linear-gradient(#1e1e2e, #1e1e2e) padding-box, 
-        linear-gradient(90deg, rgba(102, 11, 181, 1) 0%, rgba(217, 108, 208, 1) 41%, rgba(103, 204, 75, 1) 100%) border-box;
-    
-    border: 3px solid transparent;
-}
 
 #workspaces button {
     padding: 0 5px;
@@ -40,7 +25,7 @@ window#waybar {
 }
 
 /* MODULE (Rechts & Mitte) */
-#clock, #battery, #network, #pulseaudio, #mpris, #custom-display, #custom-notification, #tray {
+#clock, #workspaces, #battery, #network, #pulseaudio, #mpris, #custom-display, #custom-notification, #tray {
     background: 
         /* 1. Deckschicht: Dein dunkler Hintergrund */
         linear-gradient(#1e1e2e, #1e1e2e) padding-box, 

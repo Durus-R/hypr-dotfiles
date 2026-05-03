@@ -2,6 +2,7 @@
 import subprocess
 import json
 import os
+import time
 import sys
 
 ws = json.loads(subprocess.check_output(["hyprctl", "workspaces", "-j"]))
@@ -9,7 +10,6 @@ ws = json.loads(subprocess.check_output(["hyprctl", "workspaces", "-j"]))
 for w in ws:
     if w["windows"] == 0:
         os.system(f"hyprctl dispatch workspace {w['id']}")
-        os.system("rofi -show drun")
         sys.exit()
 
 os.system('notify-send "No free workspaces"')
