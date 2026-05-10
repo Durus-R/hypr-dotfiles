@@ -46,9 +46,6 @@ function copy
     end
 end
 
-function pixel6
-    sudo adb connect 100.66.181.125:39787 
-end
 
 # Cleanup local orphaned packages
 function cleanup
