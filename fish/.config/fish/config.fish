@@ -137,6 +137,9 @@ end
 
 set -x PARU_PAGER "less -P \"Press 'q' to exit the PKGBUILD review.\""
 
+fish_add_path $HOME/.local/bin
+set -x NODE_PATH $HOME/.local/lib/node_modules $NODE_PATH
+set -x npm_config_prefix $HOME/.local
 if status is-login
     if test (tty) = "/dev/tty1"
         exec start-hyprland
@@ -171,4 +174,4 @@ set -x TS_EXITNODE de-fra-wg-101.mullvad.ts.net
 set -gx PATH $PATH /home/kitten/.lmstudio/bin
 # End of LM Studio CLI section
 
-#set -gx PATH $PATH /home/kitten/go/bin
+set -gx PATH $PATH /home/kitten/go/bin

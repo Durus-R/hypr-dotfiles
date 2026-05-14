@@ -13,6 +13,8 @@ swaync &
 #kdeconnect-indicator &
 #rquickshare &
 ~/.config/hypr/init_wallpaper.sh
+~/.config/hypr/wallpaper_switcher.sh &
+systemctl --user start hyprpolkitagent &
 hyprsunset &
 gsettings set org.gnome.shell.extensions.user-theme name 'WhiteSur-Dark-pink'
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
