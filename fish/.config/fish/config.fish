@@ -91,6 +91,8 @@ if not test -x /usr/bin/yay; and test -x /usr/bin/paru
     alias yay 'paru'
 end
 
+alias task go-task
+
 # Common use
 alias .. 'cd ..'
 alias ... 'cd ../..'
